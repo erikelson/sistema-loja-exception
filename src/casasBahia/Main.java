@@ -12,7 +12,7 @@ public class Main {
         Sistema sistema = new Sistema();
         Scanner scan = new Scanner(System.in);
 
-        int opcao;
+        int opcao = 0;
 
         do {
             System.out.println("---Menu----");
@@ -21,8 +21,14 @@ public class Main {
             System.out.println("3- Buscar");
             System.out.println("4- Remover");
             System.out.print("Digite sua opção: ");
-            opcao = scan.nextInt();
-            scan.nextLine();
+            try {
+                opcao = scan.nextInt();
+                scan.nextLine();
+            } catch (InputMismatchException e) {
+                System.out.println("Opção não pode conter letra. Digite um número de 1 a 5");
+                scan.nextLine();
+                continue;
+            }
 
             switch (opcao) {
                 case 1:
@@ -33,8 +39,6 @@ public class Main {
                     } catch (NomeProdutoInvalidoException e) {
                         System.out.println(e.getMessage());
                     } catch (CodigoDoProdutoException e) {
-                        System.out.println(e.getMessage());
-                    } catch (InputMismatchException e) {
                         System.out.println(e.getMessage());
                     } catch (OpcaoInvalidaException e) {
                         System.out.println(e.getMessage());
@@ -57,9 +61,11 @@ public class Main {
                     } catch (CodigoDoProdutoException e) {
                         System.out.println(e.getMessage());
                     }
-
+                    break;
+                case 5:
                     break;
                 default:
+                    System.out.println("Opção inválida, tente novamente!");
                     break;
             }
 

@@ -1,7 +1,6 @@
 package casasBahia;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import excecoes.*;
@@ -14,7 +13,7 @@ public class Sistema {
         this.produtos = new ArrayList<Produto>();
     }
 
-    public void adicionarProduto(Scanner scanner) throws PrecoInvalidoException, NomeProdutoInvalidoException, CodigoDoProdutoException, InputMismatchException, OpcaoInvalidaException {
+    public void adicionarProduto(Scanner scanner) throws PrecoInvalidoException, NomeProdutoInvalidoException, CodigoDoProdutoException, OpcaoInvalidaException {
         System.out.println("Digite o nome do produto: ");
         String nome = scanner.nextLine();
         if (nome == null || nome.trim().isEmpty()) {
